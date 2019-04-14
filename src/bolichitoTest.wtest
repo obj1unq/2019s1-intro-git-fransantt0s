@@ -9,21 +9,20 @@ test "El bolichito es brillante si tiene un muñeco y una placa" {
 	assert.that(bolichito.esBrillante())
 }
 
-test "El bolichito no es brillante si tiene una pelota y una placa" {
-	bolichito.ponerEnMostrador(pelota)
-	bolichito.ponerEnVidriera(placa)
-	
-	assert.notThat(bolichito.esBrillante())
-}
 
 test "la pelota brilla"{
 assert.notThat(pelota.material().brilla())
+}
+
+test "la placa brilla"{
+	assert.that(placa.material().brilla())
 }
 
 
 test "El bolichito es monocromático si tiene una remera y una placa roja" {
 	bolichito.ponerEnMostrador(remera)
 	bolichito.ponerEnVidriera(placa)
+	placa.setColor(rojo)
 	
 	assert.that(bolichito.esMonocromatico())
 }
@@ -61,7 +60,7 @@ test "El bolichito puede mejorar si tiene una remera y una placa roja" {
 	bolichito.ponerEnMostrador(remera)
 	bolichito.ponerEnVidriera(placa)
 	
-	bolichito.puedeMejorar()
+	assert.that(bolichito.puedeMejorar())
 }
 
 test "El bolichito no puede mejorar si tiene una remera en el mostrador y una pelota en la vidriera" {
